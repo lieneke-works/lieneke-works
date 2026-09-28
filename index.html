@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>lieneke.works | lieneke.works</title>
+<meta name="description" content="Hier komt misschien ooit de nieuwe website van lieneke.works">
+<meta property="og:title" content="lieneke.works">
+<meta property="og:description" content="Hier komt misschien ooit de nieuwe website van lieneke.works">
+<meta property="og:url" content="https://lieneke.works">
+<meta name="theme-color" content="#E6E9E4" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#141B18" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='5.5' fill='%23B07D24'/%3E%3C/svg%3E">
+<link rel="preload" href="fonts/bodoni-moda-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+  /* Lettertypes staan in de map /fonts, dus geen verbinding met Google nodig */
+  @font-face {
+    font-family: "Bodoni Moda";
+    src: url("fonts/bodoni-moda-latin-opsz-normal.woff2") format("woff2");
+    font-weight: 400 900;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Hanken Grotesk";
+    src: url("fonts/hanken-grotesk-latin-400-normal.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Hanken Grotesk";
+    src: url("fonts/hanken-grotesk-latin-500-normal.woff2") format("woff2");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  :root {
+    --paper: #E6E9E4;
+    --ink: #1C2622;
+    --muted: #55625C;
+    --dot: #B07D24;
+    --underline: rgba(28, 38, 34, .28);
+    --gutter: clamp(20px, 4.5vw, 64px);
+    color-scheme: light dark;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #141B18;
+      --ink: #E3E7E1;
+      --muted: #9BA69F;
+      --dot: #D6A447;
+      --underline: rgba(227, 231, 225, .3);
+    }
+  }
+
+  * { box-sizing: border-box; margin: 0; }
+
+  html { background: var(--paper); }
+
+  body {
+    min-height: 100vh;
+    min-height: 100svh;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    padding: var(--gutter);
+    padding-bottom: calc(var(--gutter) * .6);
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 1.0625rem;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  .name {
+    font-weight: 500;
+    letter-spacing: .01em;
+  }
+
+  main {
+    align-self: end;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Het woordmerk staat onderaan de pagina, als een handtekening */
+  h1 {
+    order: 2;
+    font-family: "Bodoni Moda", "Bodoni 72", Didot, "Times New Roman", serif;
+    font-weight: 400;
+    /* Schaalt mee zodat het woord altijd precies binnen de marges past */
+    font-size: min(calc((100vw - 2 * var(--gutter)) / 6.2), 16rem);
+    line-height: 1;
+    letter-spacing: -.02em;
+    margin-left: -.045em;
+    margin-bottom: -.08em;
+    white-space: nowrap;
+  }
+
+  /* De punt ademt rustig: er wordt aan gewerkt */
+  .dot {
+    display: inline-block;
+    width: .14em;
+    height: .14em;
+    margin: 0 .045em 0 .055em;
+    border-radius: 50%;
+    background: var(--dot);
+    animation: breathe 3.2s ease-in-out infinite;
+  }
+  @keyframes breathe {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%      { opacity: .35; transform: scale(.78); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .dot { animation: none; }
+  }
+
+  .details {
+    order: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 1.25rem 3rem;
+    margin-bottom: clamp(1.75rem, 5vw, 3.5rem);
+  }
+
+  .note {
+    max-width: 30ch;
+    color: var(--muted);
+  }
+
+  .contact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem 2.25rem;
+    list-style: none;
+    padding: 0;
+  }
+
+  .contact a {
+    color: var(--ink);
+    font-weight: 500;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-decoration-color: var(--underline);
+    text-underline-offset: .32em;
+    transition: text-decoration-color .2s ease;
+  }
+  .contact a:hover { text-decoration-color: var(--dot); }
+  .contact a:focus-visible {
+    outline: 2px solid var(--dot);
+    outline-offset: 4px;
+    border-radius: 2px;
+  }
+
+  @media (max-width: 560px) {
+    .details { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+  <header class="name">lieneke.works</header>
+
+  <main>
+    <h1 aria-label="lieneke.works">lieneke<span class="dot" aria-hidden="true"></span>works</h1>
+    <div class="details">
+      <p class="note">Hier komt misschien ooit de nieuwe website van lieneke.works <br> Tot die tijd kun je me mailen of vinden op LinkedIn.</p>
+
+      <!-- Vul hier je eigen mailadres (2x) en LinkedIn-link in -->
+      <ul class="contact">
+        <li><a href="mailto:info@lieneke.works">Mail me</a></li>
+        <li><a href="https://www.linkedin.com/in/lienekeschoenmakers/" target="_blank" rel="noopener">Bekijk m'n LinkedIn</a></li>
+      </ul>
+    </div>
+  </main>
+
+</body>
+</html>
